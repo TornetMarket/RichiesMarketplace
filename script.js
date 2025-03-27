@@ -71,13 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
               Welcome to Richie's Marketplace – a fully anonymous digital marketplace built for those who seek essential info, data, tools, gadgets, and more. Here, you can buy, sell, and trade items securely using cryptocurrency or a decentralized cash app, ensuring privacy and confidentiality at all times.
           </p>
           <p>
-              Richie's Marketplace isn't just a transaction hub; it's the ultimate destination for professionals and enthusiasts looking to equip themselves with the latest resources for their needs—whether it’s for innovation, security, or exploring the digital world. With a diverse range of offerings, you'll find everything you need for hacking, digital assets, or tech enhancement, all within a secure, decentralized environment.
+              At Richie's Marketplace, we prioritize the safety and security of all transactions. To ensure your peace of mind, all payments are handled through a secure escrow service. Once your payment is received in the escrow account, your product or information will be delivered to you via email, ensuring that both parties are protected and that your digital commerce experience is seamless and trustworthy.
           </p>
           <p>
               Whether you're hunting for exclusive tools, powerful gadgets, or niche resources, Richie's Marketplace delivers a discreet and innovative space for your digital commerce needs. Secure your access today and stay ahead in the digital world.
           </p>
-          
-      
   `;
 
   const hackingContent = `
@@ -101,9 +99,9 @@ document.addEventListener("DOMContentLoaded", function() {
       <h1>Account</h1>
       <p>We offer a daily-updated list of pre-validated accounts for various services, ranging from streaming platforms to account management. Additionally, you can request one of our specialists to gather and provide login credentials for any social media account of your choice, including Instagram, Snapchat, and more.</p>
       <button class="payload-btn">[$10] Netflix/Hulu/HBO/Disney+</button>
-      <button class="payload-btn">[$7] CruncyRoll/Peacock/Fubo/Roku/ESPN</button>
-      <button class="payload-btn">[$7] YoutubeTV/AppleTV/DirecTV/SlingTV </button>
-      <button class="payload-btn">[$5] Discovery+/AMC+/Paramount+</button>
+      <button class="payload-btn">[$7] CruncyRoll/Peacock/Roku</button>
+      <button class="payload-btn">[$7] YoutubeTV/AppleTV/SlingTV </button>
+      <button class="payload-btn">[$5] AMC+/Paramount+</button>
     </div>
   `;
 
