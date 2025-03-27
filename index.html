@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Richie's Marketplace</title>
+  <!-- Import Google Font for a modern, code-like feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+<!-- Intro Animation Screen -->
+<div id="intro-screen">
+  <div id="intro-text">
+    <div class="intro-line">
+      <span id="intro-left">Tornet</span>
+    </div>
+    <div class="intro-line">
+      <span id="intro-center"> X </span>
+    </div>
+    <div class="intro-line">
+      <span id="intro-right">TedzMedz</span>
+    </div>
+    <div id="intro-presents">"The Best of Both Worlds”</div>
+  </div>
+</div>
+
+<!-- Password Modal -->
+<div id="password-modal" class="modal">
+  <div class="modal-content">
+    <!-- Logo Image -->
+    <img src="logo.png" alt="Richie's Marketplace Logo" class="logo-image">
+    <!-- Username input -->
+    <input type="text" id="username-input" placeholder="Username" />
+    <!-- Password input -->
+    <input type="password" id="password-input" placeholder="Password" /> 
+    <!-- Create Account link -->
+    <a href="#" id="create-account-link" class="create-account-link">Create Account</a>  
+    <!-- Submit button -->
+    <button id="password-submit">Submit</button>  
+    <!-- Error message -->
+    <p id="error-message" class="error"></p>
+    <footer class="login-footer">
+      <p>POWERED BY</p>
+      <p>Tornet x Tedzmedz</p>
+    </footer>
+  </div>
+</div>
+
+<!-- Main Content (Hidden until correct password entered) -->
+<div id="main-content" class="hidden">
+  <nav class="navbar">
+    <!-- Mobile Header: Hamburger Menu -->
+    <div class="mobile-header">
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+    <ul class="nav-menu">
+      <li id="nav-home">Home</li>
+      <li id="nav-hacking">Hacking</li>
+      <li id="nav-trickery">Trickery</li>
+      <li id="nav-software">Software</li>
+      <li id="nav-remedy">Remedy</li>
+      <li id="nav-logout">[Logout]</li> <!-- Add this line for logout -->
+    </ul>    
+  </nav>
+
+  <!-- Home Page Section -->
+  <section id="home-page">
+    <div class="crown-home">
+      <img src="crown.png" alt="Crown Logo" class="crown-image">
+    </div>
+    <h1>Richie's Marketplace</h1>
+    <!-- Content Panels will be swapped here -->
+    <div id="content-panels">
+      <div class="container" id="description-panel">
+        <h2>Overview</h2>
+        <p>
+            Welcome to Richie's Marketplace – a fully anonymous digital marketplace built for those who seek essential info, data, tools, gadgets, and more. Here, you can buy, sell, and trade items securely using cryptocurrency or a decentralized cash app, ensuring privacy and confidentiality at all times.
+        </p>
+        <p>
+            Richie's Marketplace isn't just a transaction hub; it's the ultimate destination for professionals and enthusiasts looking to equip themselves with the latest resources for their needs—whether it’s for innovation, security, or exploring the digital world. With a diverse range of offerings, you'll find everything you need for hacking, digital assets, or tech enhancement, all within a secure, decentralized environment.
+        </p>
+        <p>
+            Whether you're hunting for exclusive tools, powerful gadgets, or niche resources, Richie's Marketplace delivers a discreet and innovative space for your digital commerce needs. Secure your access today and stay ahead in the digital world.
+        </p>
+    </div>    
+    </div>
+  </section>
+
+  <div class="container" id="terms-panel">
+    <h2>[Terms and Conditions]</h2>
+    <p>By using Richie's Marketplace, you abide by all terms and conditions. Any unauthorized use, sharing, or distribution of the provided tools is strictly prohibited and will result in immediate termination of access. By entering this marketplace, you acknowledge and accept these rules without exception.</p>
+  </div>
+
+  <!-- Scripts Page Section -->
+  <section id="scripts-page" class="hidden">
+    <h1>Richie's Marketplace</h1>
+    <div class="container">
+      <h2>Payloads</h2>
+      <button id="grab-ip-btn" class="payload-btn">Grab IP</button>
+      <button id="ping-ip-btn" class="payload-btn">Ping IP</button>
+    </div>
+  </section>
+</div>
+
+<!-- IP Modal Popup (Hidden by default) -->
+<div id="ip-modal" class="modal hidden">
+  <div class="modal-content ip-modal-content">
+    <span class="close-ip-modal">&times;</span>
+    <div id="ip-info"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
