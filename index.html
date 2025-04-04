@@ -49,6 +49,22 @@
   </div>
 </div>
 
+<!-- Create Account Modal -->
+<div id="create-account-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-modal" id="close-create-account">&times;</span>
+    <h1>Create Account</h1>
+    <input type="text" id="create-username" placeholder="Username" required />
+    <input type="password" id="create-password" placeholder="Password" required />
+    <input type="email" id="create-email" placeholder="Email" required />
+    <!-- Change input type to password so characters are hidden -->
+    <input type="password" id="create-auth-token" placeholder="Auth Token" required />
+    <button id="create-account-btn">Create Account</button>
+  </div>
+</div>
+
+
+
 <!-- Main Content (Hidden until correct password entered) -->
 <div id="main-content" class="hidden">
   <nav class="navbar">
@@ -95,8 +111,11 @@
 
   <div class="container" id="terms-panel">
     <h2>[Terms and Conditions]</h2>
-    <p>By using Richie's Marketplace, you abide by all terms and conditions. Any unauthorized use, sharing, or distribution of the provided tools is strictly prohibited and will result in immediate termination of access. By entering this marketplace, you acknowledge and accept these rules without exception.</p>
+    <p>
+      By accessing Richie's Marketplace, you agree to comply with all terms and conditions. All payments are final and non-refundable. You are solely responsible for how you use any information, tools, or items obtained through this marketplace. Misuse or failure to follow instructions is entirely at your own risk. Richie's Marketplace assumes no liability for your actions or consequences resulting from them. Unauthorized sharing, distribution, or use will result in immediate termination of access.
+    </p>
   </div>
+  
 
   <!-- Scripts Page Section -->
   <section id="scripts-page" class="hidden">
@@ -116,6 +135,55 @@
     <div id="ip-info"></div>
   </div>
 </div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <p>POWERED BY Tornet x Tedzmedz | <span id="contact-link">Contact</span></p>
+</footer>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h1>Contact Admins</h1>
+    <input type="text" id="contact-username" placeholder="Username" required />
+    <input type="email" id="contact-email" placeholder="Email" required />
+    <textarea id="contact-message" placeholder="Message" required></textarea>
+    <button id="send-contact">Contact</button>
+  </div>
+</div>
+
+<!-- Request Modal -->
+<div id="request-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-modal" id="close-request-modal">&times;</span>
+    <h1>Request Item</h1>
+    <input type="text" id="request-username" placeholder="Username" readonly />
+    <input type="email" id="request-email" placeholder="Email" />
+    <input type="text" id="request-phone" placeholder="Phone # (optional)" />
+    <input type="text" id="request-item" placeholder="Item" readonly />
+    <input type="number" id="request-quantity" placeholder="Quantity" value="1" min="1" />
+    <textarea id="request-note" placeholder="Additional note to vendor"></textarea>
+    
+    <!-- Payment Information -->
+    <div class="payment-info">
+      <h3>BTC Wallet Address</h3>
+      <p id="btc-wallet">bc1q9rk8rw2m93dnefuhc9gvzrlkwgeskmnlqca0um</p>
+      <img src="btcpay.png" alt="BTCPay" class="btcpay-image" />
+      <h3>Cashapp</h3>
+      <p><a href="https://cash.app/$cinderellapix" target="_blank">https://cash.app/$cinderellapix</a></p>
+    </div>
+    
+    <!-- Payment Message -->
+    <p class="payment-message">
+      The full payment for this item will be required. Once your payment is confirmed via our secure escrow service using the links above, your requested item/information will be delivered to you through a secure, anonymous email.
+    </p>
+    
+    <button id="send-request">Request</button>
+  </div>
+</div>
+
+
 
 <script src="script.js"></script>
 </body>
