@@ -481,3 +481,164 @@ body {
   animation: modalAppear 1.2s ease-out forwards; /* Slightly longer for smoothness */
   animation-delay: 4s; /* Adjust based on intro timing */
 }
+
+/* Footer Styles */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #161616;
+  color: #d4af37;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 1px solid #d4af37;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer #contact-link {
+  color: #d4af37;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.site-footer #contact-link:hover {
+  text-decoration: underline;
+}
+
+/* Contact Modal */
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  color: #d4af37;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  border: 1px solid #d4af37;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  background: #222;
+  color: white;
+  border: 1px solid #d4af37;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  background: #d4af37;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-content button:hover {
+  background: #b18c47;
+}
+
+
+/* Contact Modal styles are reused for Create Account Modal */
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  color: #d4af37;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid #d4af37;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #d4af37;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Form inputs for the create account modal */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  background: #222;
+  color: #fff;
+  border: 1px solid #d4af37;
+  border-radius: 4px;
+}
+
+/* Button for create account modal */
+.modal-content button {
+  background: #d4af37;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: #c49f5c;
+}
+
+/* Style for Create Account Link (in the password modal) */
+.create-account-link {
+  display: block;
+  color: #fff; /* White by default */
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.create-account-link:hover {
+  color: #d4af37; /* Gold on hover */
+}
+
+.btcpay-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+}
+
+#btc-wallet {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin: 0 auto;
+  color: #ffffff; /* BTC wallet text color */
+}
+
+/* Payment Info Link Styling */
+.payment-info a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.payment-info a:hover {
+  text-decoration: underline;
+}
