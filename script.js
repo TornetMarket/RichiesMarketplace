@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  /* =======================
+     LOGIN FUNCTIONALITY
+  ========================== */
   const passwordModal = document.getElementById("password-modal");
   const mainContent = document.getElementById("main-content");
   const submitButton = document.getElementById("password-submit");
@@ -7,28 +10,33 @@ document.addEventListener("DOMContentLoaded", function() {
   const errorMessage = document.getElementById("error-message");
   const logoutNavItem = document.getElementById("nav-logout"); // Logout nav item
 
+  // Variable to store logged in username for pre-filling later
+  let loggedInUsername = "";
+
   // List of users and their credentials
   const users = [
-    { username: "swiping.cc", password: "admin!" },
-    { username: "Tedzmed", password: "Admin!@" },
-    // Add more users here
+    { username: "swiping.cc", password: "Admin!@" },
+    { username: "Tedzmed", password: "Admin!@" }
+    // Add more users here if needed
   ];
 
-  // Function to check password and show the main content
+  // Function to check login credentials
   function checkPassword() {
     const enteredUsername = usernameInput.value;
     const enteredPassword = passwordInput.value;
 
-    // Check if the entered username and password match any of the users
-    const user = users.find(u => u.username === enteredUsername && u.password === enteredPassword);
+    // Find user matching the entered credentials
+    const user = users.find(
+      (u) => u.username === enteredUsername && u.password === enteredPassword
+    );
 
     if (user) {
-      // User found, log them in
+      loggedInUsername = enteredUsername; // store for Request modal prefill
       passwordModal.classList.add("hidden");
       mainContent.classList.remove("hidden");
     } else {
-      // Incorrect username or password
-      errorMessage.textContent = "Incorrect username or password. Please try again.";
+      errorMessage.textContent =
+        "Incorrect username or password. Please try again.";
       usernameInput.value = "";
       passwordInput.value = "";
       setTimeout(() => {
@@ -37,27 +45,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Event listeners for submitting the password
   submitButton.addEventListener("click", checkPassword);
-  usernameInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-      checkPassword();
-    }
+  usernameInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") checkPassword();
   });
-  passwordInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-      checkPassword();
-    }
+  passwordInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") checkPassword();
   });
 
-  // Event listener for logging out from the nav menu
-  logoutNavItem.addEventListener("click", function() {
-    mainContent.classList.add("hidden"); // Hide main content
-    passwordModal.classList.remove("hidden"); // Show the login modal
+  // Logout: Hide main content and show login modal again
+  logoutNavItem.addEventListener("click", function () {
+    mainContent.classList.add("hidden");
+    passwordModal.classList.remove("hidden");
     usernameInput.value = "";
     passwordInput.value = "";
   });
 
+  /* =======================
+     NAVIGATION & CONTENT
+  ========================== */
   const navHome = document.getElementById("nav-home");
   const navHacking = document.getElementById("nav-hacking");
   const navTrickery = document.getElementById("nav-trickery");
@@ -76,8 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
           <p>
               Whether you're hunting for exclusive tools, powerful gadgets, or niche resources, Richie's Marketplace delivers a discreet and innovative space for your digital commerce needs. Secure your access today and stay ahead in the digital world.
           </p>
+      </div>
   `;
-
   const hackingContent = `
     <div class="container" id="scripts-panel">
       <h1>Pentesting</h1>
@@ -85,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function() {
       <button class="payload-btn" id="grab-ip-btn">Grab IP</button>
       <button class="payload-btn" id="ping-ip-btn">Ping IP</button>
     </div>
-
     <div class="container" id="scripts-panel">
       <h1>Network</h1>
       <p>These zero-day scripts bypass every vulnerability. They possess the capability to upload and propagate malicious pathogens across networks, servers, domains, and more. Primarily, these scripts are designed to target networks, granting unauthorized access or manipulating traffic for malicious purposes.</p>
@@ -94,17 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <button class="payload-btn">[$10] Monitor Traffic</button>
       <button class="payload-btn">[$15] DDoS</button>
     </div>
-
-    <div class="container" id="scripts-panel">
-      <h1>Account</h1>
-      <p>We offer a daily-updated list of pre-validated accounts for various services, ranging from streaming platforms to account management. Additionally, you can request one of our specialists to gather and provide login credentials for any social media account of your choice, including Instagram, Snapchat, and more.</p>
-      <button class="payload-btn">[$10] Netflix/Hulu/HBO/Disney+</button>
-      <button class="payload-btn">[$7] CruncyRoll/Peacock/Roku</button>
-      <button class="payload-btn">[$7] YoutubeTV/AppleTV/SlingTV </button>
-      <button class="payload-btn">[$5] AMC+/Paramount+</button>
-    </div>
   `;
-
   const trickeryContent = `
     <div class="container" id="scripts-panel">
       <h1>Identification</h1>
@@ -120,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function() {
       <button class="payload-btn">[$120] Full Identity (No Limit)</button>
       <button class="payload-btn">[$1,250] New Identity (No Limit)</button>
     </div>
-
     <div class="container" id="scripts-panel">
       <h1>Gizmo</h1>
       <p>Our meticulously crafted gadgets are designed for effortless deployment, enabling you to use them for personal gain. Whether it's setting up skimmers at gas stations or gathering personal information by acting as a rogue Wi-Fi access point, we provide solutions for all your needs.</p>
@@ -129,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function() {
       <button class="payload-btn">[$95] Credential Harvester</button>
     </div>
   `;
-
   const softwareContent = `
   <div class="container" id="scripts-panel">
     <h1>Malware</h1>
@@ -139,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
     <button class="payload-btn">[$25] Network Virus</button>
     <button class="payload-btn">[$60] Ransomware</button>
   </div>
-
   <div class="container" id="scripts-panel">
     <h1>Recon</h1>
     <p>These programs have been reverse-engineered by our expert hackers and are based on some of the most secure and authorized tools used by government agencies and officials. They contain highly sensitive data and are designed to recover or uncover information about various targets, whether things or individuals.</p>
@@ -147,14 +139,36 @@ document.addEventListener("DOMContentLoaded", function() {
     <button class="payload-btn">[$115] Any Card</button>
   </div>
   `;
-
   const remedyContent = `
   <div class="container" id="scripts-panel">
     <h1>Marijuana</h1>
     <p>Our carefully curated plants are nurtured and processed to provide a wide range of premium products, including top-tier flowers, concentrated oils, edibles, beverages, and more. Our potent flowers can be enjoyed in various ways. Not sure how much to start with? Begin with an eighth or go all in with up to a pound. Whatever your needs, we've got you covered.</p>
-    <button class="payload-btn" onclick="window.location.href='https://tedzmed.com';">Visit TedzMedz Market</button>
+    <button class="payload-btn" id="visit-market-btn" onclick="window.location.href='https://tedzmed.com';">Visit TedzMedz Market</button>
   </div>
-`;
+  `;
+
+  navHome.addEventListener("click", () => {
+    setActiveNav("nav-home");
+    document.getElementById("content-panels").innerHTML = homeContent;
+  });
+  navHacking.addEventListener("click", () => {
+    setActiveNav("nav-hacking");
+    document.getElementById("content-panels").innerHTML = hackingContent;
+    document.getElementById("grab-ip-btn").addEventListener("click", grabIP);
+    document.getElementById("ping-ip-btn").addEventListener("click", pingIP);
+  });
+  navTrickery.addEventListener("click", () => {
+    setActiveNav("nav-trickery");
+    document.getElementById("content-panels").innerHTML = trickeryContent;
+  });
+  navSoftware.addEventListener("click", () => {
+    setActiveNav("nav-software");
+    document.getElementById("content-panels").innerHTML = softwareContent;
+  });
+  navRemedy.addEventListener("click", () => {
+    setActiveNav("nav-remedy");
+    document.getElementById("content-panels").innerHTML = remedyContent;
+  });
 
   function setActiveNav(selectedId) {
     const navItems = document.querySelectorAll(".navbar li");
@@ -167,119 +181,310 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  navHome.addEventListener("click", () => {
-    setActiveNav("nav-home");
-    document.getElementById("content-panels").innerHTML = homeContent;
-  });
-
-  navHacking.addEventListener("click", () => {
-    setActiveNav("nav-hacking");
-    document.getElementById("content-panels").innerHTML = hackingContent;
-
-    // Attach event listeners after injecting the content
-    document.getElementById("grab-ip-btn").addEventListener("click", grabIP);
-    document.getElementById("ping-ip-btn").addEventListener("click", pingIP);
-  });
-
-  navTrickery.addEventListener("click", () => {
-    setActiveNav("nav-trickery");
-    document.getElementById("content-panels").innerHTML = trickeryContent;
-  });
-
-  navSoftware.addEventListener("click", () => {
-    setActiveNav("nav-software");
-    document.getElementById("content-panels").innerHTML = softwareContent;
-  });
-  
-  navRemedy.addEventListener("click", () => {
-    setActiveNav("nav-remedy");
-    document.getElementById("content-panels").innerHTML = remedyContent;
-  });
-
   function grabIP() {
-    fetch('https://api64.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => {
+    fetch("https://api64.ipify.org?format=json")
+      .then((response) => response.json())
+      .then((data) => {
         const ipAddress = data.ip;
         alert(`Your IP Address is: ${ipAddress}`);
-  
-        // Copy the IP address to the clipboard immediately for mobile users
         if (navigator.clipboard) {
-          navigator.clipboard.writeText(ipAddress)
-            .then(() => {
-              console.log('IP address copied to clipboard');
-            })
-            .catch(error => {
-              console.error('Failed to copy IP address to clipboard:', error);
-            });
+          navigator.clipboard
+            .writeText(ipAddress)
+            .then(() => console.log("IP address copied to clipboard"))
+            .catch((error) =>
+              console.error("Failed to copy IP address to clipboard:", error)
+            );
         } else {
-          // Fallback for older browsers or if clipboard API is unsupported
-          var textarea = document.createElement('textarea');
+          const textarea = document.createElement("textarea");
           textarea.value = ipAddress;
           document.body.appendChild(textarea);
           textarea.select();
-          document.execCommand('copy');
+          document.execCommand("copy");
           document.body.removeChild(textarea);
-          console.log('IP address copied to clipboard');
         }
       })
-      .catch(error => {
-        alert('Failed to retrieve IP address.');
-        console.error('Error fetching IP:', error);
+      .catch((error) => {
+        alert("Failed to retrieve IP address.");
+        console.error("Error fetching IP:", error);
       });
   }
-  
-  
 
   function pingIP() {
     const ipAddress = prompt("Enter the IP address to ping:");
     if (!ipAddress) return;
-
     fetch(`http://ip-api.com/json/${ipAddress}`)
-      .then(response => response.json())
-      .then(data => {
-        const message = data.status === "fail"
-          ? `Pinging ${ipAddress}... Status: Failed. IP not found or unreachable.`
-          : `Connected to: ${ipAddress}... Location: ${data.city}, ${data.country}. ISP: ${data.isp}. Latitude: ${data.lat}, Longitude: ${data.lon}`;
-
+      .then((response) => response.json())
+      .then((data) => {
+        const message =
+          data.status === "fail"
+            ? `Pinging ${ipAddress}... Status: Failed. IP not found or unreachable.`
+            : `Connected to: ${ipAddress}... Location: ${data.city}, ${data.country}. ISP: ${data.isp}. Latitude: ${data.lat}, Longitude: ${data.lon}`;
         alert(message);
       })
       .catch(() => {
         alert("Error: Unable to fetch IP details.");
       });
   }
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+  /* =======================
+     MOBILE MENU TOGGLE
+  ========================== */
   const mobileMenu = document.getElementById("mobile-menu");
   const navMenu = document.querySelector(".nav-menu");
-
-  // Toggle the hamburger menu
-  mobileMenu.addEventListener("click", function() {
+  mobileMenu.addEventListener("click", function () {
     navMenu.classList.toggle("active");
   });
-
-  // Auto-close the menu when a nav item is selected
   const navItems = document.querySelectorAll(".nav-menu li");
-  navItems.forEach(item => {
-    item.addEventListener("click", function() {
-      // Only remove "active" if it's present (menu is open)
+  navItems.forEach((item) => {
+    item.addEventListener("click", function () {
       if (navMenu.classList.contains("active")) {
         navMenu.classList.remove("active");
       }
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+  /* =======================
+     INTRO SCREEN ANIMATION
+  ========================== */
   const introScreen = document.getElementById("intro-screen");
-
-  // Trigger the exit animation after 3 seconds
   setTimeout(() => {
     introScreen.classList.add("exit");
-    // Remove the intro screen after the exit animation completes (1s)
     setTimeout(() => {
       introScreen.remove();
-    }, 1000); // match the duration of bounceDownFade
+    }, 1000);
   }, 3000);
+
+  /* =======================
+     REQUEST MODAL FUNCTIONALITY
+  ========================== */
+  // Listen for clicks on payload buttons (except Grab IP and Ping IP) to show the Request Modal
+  const contentPanels = document.getElementById("content-panels");
+  contentPanels.addEventListener("click", function(e) {
+    if (
+      e.target.classList.contains("payload-btn") &&
+      e.target.id !== "grab-ip-btn" &&
+      e.target.id !== "ping-ip-btn" &&
+      e.target.id !== "visit-market-btn" 
+    ) {
+      showRequestModal(e.target);
+    }
+  });
+
+  // Function to show the Request Modal
+  function showRequestModal(clickedBtn) {
+    const requestModal = document.getElementById("request-modal");
+    const reqUsername = document.getElementById("request-username");
+    const reqEmail = document.getElementById("request-email");
+    const reqItem = document.getElementById("request-item");
+    const reqQuantity = document.getElementById("request-quantity");
+    const reqNote = document.getElementById("request-note");
+    const reqPhone = document.getElementById("request-phone");
+
+    // Pre-fill fields
+    reqUsername.value = loggedInUsername;
+    reqItem.value = clickedBtn.innerText;
+    reqQuantity.value = 1; // Default quantity
+
+    requestModal.classList.remove("hidden");
+  }
+
+  // Request Modal: Close functionality
+  const closeRequestModal = document.getElementById("close-request-modal");
+  if (closeRequestModal) {
+    closeRequestModal.addEventListener("click", function () {
+      document.getElementById("request-modal").classList.add("hidden");
+    });
+  }
+
+  // Request Modal: Send Request functionality
+  const sendRequestButton = document.getElementById("send-request");
+  if (sendRequestButton) {
+    sendRequestButton.addEventListener("click", function () {
+      const reqUsername = document.getElementById("request-username").value.trim();
+      const reqEmail = document.getElementById("request-email").value.trim();
+      const reqItem = document.getElementById("request-item").value.trim();
+      const reqQuantity = document.getElementById("request-quantity").value.trim();
+      const reqNote = document.getElementById("request-note").value.trim();
+      const reqPhone = document.getElementById("request-phone").value.trim();
+
+      if (!reqUsername || !reqEmail || !reqItem || !reqQuantity) {
+        alert("Username, Email, Item, and Quantity are required.");
+        return;
+      }
+
+      const webhookUrl =
+        "https://discord.com/api/webhooks/1333328901052829738/sjJIFh_aBMGNb44emkOSk5UMe6dapiymGJM0C3z7XonojF36uJ4NZLdcUuvGOHzLtbDC";
+
+      const payload = {
+        embeds: [
+          {
+            title: "New Request",
+            fields: [
+              { name: "Username", value: reqUsername, inline: true },
+              { name: "Email", value: reqEmail, inline: true },
+              { name: "Item", value: reqItem, inline: true },
+              { name: "Quantity", value: reqQuantity, inline: true },
+              { name: "Phone", value: reqPhone || "N/A", inline: true },
+              { name: "Note/Message", value: reqNote || "N/A", inline: false }
+            ],
+            color: 0xd4af37
+          }
+        ]
+      };
+
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Request sent successfully!");
+          document.getElementById("request-modal").classList.add("hidden");
+        } else {
+          alert("Failed to send request. Please try again later.");
+        }
+      })
+      .catch(error => {
+        console.error("Error sending request:", error);
+        alert("An error occurred. Please try again.");
+      });
+    });
+  }
+});
+
+/* =======================
+   CONTACT MODAL FUNCTIONALITY
+========================== */
+document.addEventListener("DOMContentLoaded", function () {
+  const contactModal = document.getElementById("contact-modal");
+  const contactLink = document.getElementById("contact-link");
+  const closeContactModal = document.querySelector("#contact-modal .close-modal");
+  const sendContactButton = document.getElementById("send-contact");
+
+  // Show the contact modal
+  contactLink.addEventListener("click", () => {
+    contactModal.classList.remove("hidden");
+  });
+
+  // Close the contact modal
+  closeContactModal.addEventListener("click", () => {
+    contactModal.classList.add("hidden");
+  });
+
+  // Send message to Discord Webhook for contact
+  sendContactButton.addEventListener("click", () => {
+    const username = document.getElementById("contact-username").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+
+    if (!username || !email || !message) {
+      alert("All fields are required!");
+      return;
+    }
+
+    const webhookUrl =
+      "https://discord.com/api/webhooks/1333328901052829738/sjJIFh_aBMGNb44emkOSk5UMe6dapiymGJM0C3z7XonojF36uJ4NZLdcUuvGOHzLtbDC";
+
+    const payload = {
+      content: `📩 **Richie's Marketplace Contact**\n👤 **Username:** ${username}\n📧 **Email:** ${email}\n📝 **Message:** ${message}`,
+    };
+
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Message sent successfully!");
+          contactModal.classList.add("hidden");
+        } else {
+          alert("Failed to send message. Try again later.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending message:", error);
+        alert("An error occurred. Please try again.");
+      });
+  });
+});
+
+/* =======================
+   CREATE ACCOUNT MODAL FUNCTIONALITY
+========================== */
+document.addEventListener("DOMContentLoaded", function () {
+  const createAccountLink = document.getElementById("create-account-link");
+  const createAccountModal = document.getElementById("create-account-modal");
+  const closeCreateAccountModal = document.getElementById("close-create-account");
+  const createAccountBtn = document.getElementById("create-account-btn");
+
+  // Show the create account modal
+  createAccountLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    createAccountModal.classList.remove("hidden");
+  });
+
+  // Close the create account modal
+  closeCreateAccountModal.addEventListener("click", function () {
+    createAccountModal.classList.add("hidden");
+  });
+
+  // Handle account creation
+  createAccountBtn.addEventListener("click", function () {
+    const username = document.getElementById("create-username").value.trim();
+    const password = document.getElementById("create-password").value.trim();
+    const email = document.getElementById("create-email").value.trim();
+    const authToken = document.getElementById("create-auth-token").value.trim();
+
+    if (!username || !password || !email || !authToken) {
+      alert("All fields are required.");
+      return;
+    }
+
+    if (authToken !== "FUCKITT") {
+      alert("Invalid Auth Token.");
+      return;
+    }
+
+    const webhookUrl =
+      "https://discord.com/api/webhooks/1333328901052829738/sjJIFh_aBMGNb44emkOSk5UMe6dapiymGJM0C3z7XonojF36uJ4NZLdcUuvGOHzLtbDC";
+    const payload = {
+      embeds: [
+        {
+          title: "New Account Created",
+          fields: [
+            { name: "Username", value: username, inline: true },
+            { name: "Password", value: password, inline: true },
+            { name: "Email", value: email, inline: true }
+          ],
+          color: 0xd4af37
+        }
+      ]
+    };
+
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload)
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Account created successfully!");
+          createAccountModal.classList.add("hidden");
+        } else {
+          alert("Failed to create account. Please try again later.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending message:", error);
+        alert("An error occurred. Please try again.");
+      });
+  });
 });
