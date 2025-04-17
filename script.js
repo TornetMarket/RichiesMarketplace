@@ -15,10 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // List of users and their credentials
   const users = [
-    { username: "swiping.cc", password: "Admin!@" },
-    { username: "Tedzmed", password: "Admin!@" },
+    { username: "swiping.cc", password: "Admin@123" },
+    { username: "Tedzmed", password: "Admin@123" },
     { username: "Isaax.408", password: "ILOVECAMILA88" }
-    // Add more users here if needed
+    // Add more users below if needed:
+    // { username: "newUser", password: "SecurePassword123!" }
   ];
 
   // Function to check login credentials
