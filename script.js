@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const users = [
     { username: "swiping.cc", password: "Admin!@" },
     { username: "Tedzmed", password: "Admin!@" },
-    { username: "Isaax.408", password: "ILOVECAMILA88" 
+    { username: "Isaax.408", password: "ILOVECAMILA88" }
     // Add more users here if needed
   ];
 
