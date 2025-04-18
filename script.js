@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add more users below if needed:
     // { username: "newUser", password: "SecurePassword123!" }
   ];
-
   // Function to check login credentials
   function checkPassword() {
     const enteredUsername = usernameInput.value;
@@ -69,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navHome = document.getElementById("nav-home");
   const navHacking = document.getElementById("nav-hacking");
   const navTrickery = document.getElementById("nav-trickery");
+  const navFormulas= document.getElementById("nav-formulas"); 
   const navSoftware = document.getElementById("nav-software");
   const navRemedy = document.getElementById("nav-remedy");
 
@@ -125,6 +125,29 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="payload-btn">[$95] Credential Harvester</button>
     </div>
   `;
+  const formulasContent= `      
+    <div class="container" id="offerup-method-panel">
+      <h2>OfferUp Method</h2>
+      <p>
+        This method is relatively simple to learn and execute. You can realistically make $90–$120 within your first two days. With just a bit of experience—which usually takes about two days—you could be earning up to $1,000 every two days. Once you master the process, making as much as $1,000 a day is possible. All you need is a mobile device with access to the App Store to download OfferUp.
+      </p>
+      <button class="payload-btn">[$65] OfferUp Method</button>
+    </div>
+    <div class="container" id="doordash-uber-method-panel">
+      <h2>DoorDash/Uber Method</h2>
+      <p>
+        This method is fairly simple to do—all you need is preferably a brand new account, though an existing one can work as well. After mastering the method, usually within your first two tries, you'll be able to get free rides, meals, and credits with ease.
+      </p>
+      <button class="payload-btn">[$45] DoorDash/Uber Method</button>
+    </div>
+    <div class="container" id="half-off-method-panel">
+      <h2>50% Off Anything</h2>
+      <p>
+        Slash your total bill in half—anywhere, anytime. Whether you're dining out, grabbing fast food, or shopping for home improvement supplies, this method helps you get what you want for just 50% of the original price. Experience unbeatable savings on every purchase!
+      </p>
+      <button class="payload-btn">[$] Cover Half Price</button>
+    </div>
+  `; 
   const softwareContent = `
   <div class="container" id="scripts-panel">
     <h1>Malware</h1>
@@ -162,6 +185,10 @@ document.addEventListener("DOMContentLoaded", function () {
   navTrickery.addEventListener("click", () => {
     setActiveNav("nav-trickery");
     document.getElementById("content-panels").innerHTML = trickeryContent;
+  });
+  navFormulas.addEventListener("click", () => {
+    setActiveNav("nav-formulas");
+    document.getElementById("content-panels").innerHTML = formulasContent;
   });
   navSoftware.addEventListener("click", () => {
     setActiveNav("nav-software");
