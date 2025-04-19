@@ -702,3 +702,18 @@ body {
     padding: 15px;
   }
 }
+
+.payload-btn .old-price {
+  margin-right: 0.5em;
+  font-size: 1em;
+  color: #ff0000;
+  text-decoration: line-through;
+  vertical-align: middle;
+}
+.payload-btn .new-price {
+  margin-right: 0.5em;
+  font-size: 1.1em;
+  color: #ffffff;
+  font-weight: bold;
+  vertical-align: middle;
+}
