@@ -126,6 +126,26 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   `;
   const formulasContent= `      
+    <div class="container" id="millionaire-method-panel">
+      <h2>3 Pack Millionaire Method</h2>
+      <p>
+        Are you ready to step into a new world of financial success? With our <b>3 Pack Millionaire Method</b>, you'll secure three exclusive strategies designed to help you build real wealth in just months:
+        <ul>
+          <li><b>Fast-Track Finance:</b> Learn how to leverage and grow your capital—even starting from zero.</li>
+          <li><b>The Whale Hunter Method:</b> Discover the secrets to pulling in big investors and massive funds.</li>
+          <li><b>Passive Income Playbook:</b> Master simple, proven systems that generate steady, passive cash flow.</li>
+        </ul>
+        <b>This is the same blueprint that jump-started the multi-million dollar marketplace you see today.</b>
+        <br><br>
+        Start taking action now, and soon you'll have more money than you ever imagined possible. <b>Stick exactly to the methods and watch your income soar!</b> Once you get the hang of it, the sky’s the limit—and you can add your own twist for even bigger cashflow.<br><br>
+        <b>Ready to claim your spot? This special bundle won't last long!</b>
+      </p>
+      <button class="payload-btn">
+        <span class="old-price">$175.00</span>
+        <span class="new-price">$75</span>
+        &nbsp;Method Pack
+      </button>
+    </div>
     <div class="container" id="offerup-method-panel">
       <h2>OfferUp Method</h2>
       <p>
