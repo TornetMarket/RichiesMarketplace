@@ -101,6 +101,15 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="payload-btn">[$10] Monitor Traffic</button>
       <button class="payload-btn">[$15] DDoS</button>
     </div>
+    <div class="container" id="scripts-panel">
+      <h1>Social Media</h1>
+      <p>Account hacking encompasses a variety of techniques to target social media accounts, including methods like hacking, cracking, and bruteforcing credentials. Besides unauthorized access, these approaches can also be used to manipulate social media activity by artificially boosting likes, comments, shares, and even views, increasing the overall visibility and engagement of targeted profiles or content.</p>
+      <button class="payload-btn">[$45] Tiktok</button>
+      <button class="payload-btn">[$30] Instagram</button>
+      <button class="payload-btn">[$25] Snapchat</button>
+      <button class="payload-btn">[$20] Youtube</button>
+      <button class="payload-btn">[$15] Facebook</button>
+    </div>
   `;
   const trickeryContent = `
     <div class="container" id="scripts-panel">
