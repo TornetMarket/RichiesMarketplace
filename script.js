@@ -176,6 +176,13 @@ document.addEventListener("DOMContentLoaded", function () {
       </p>
       <button class="payload-btn">[$] Cover Half Price</button>
     </div>
+    <div class="container" id="half-off-method-panel">
+      <h2>Quick Come Up Method</h2>
+      <p>
+        This method is one that will get you rich fast! All you need is some credit cards. Use cashapp to link to your main bank and cash out asap! 
+      </p>
+      <button class="payload-btn">[$] Make Quick Money</button>
+    </div>
   `; 
   const softwareContent = `
   <div class="container" id="scripts-panel">
