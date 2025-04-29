@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
       loggedInUsername = enteredUsername; // store for Request modal prefill
       passwordModal.classList.add("hidden");
       mainContent.classList.remove("hidden");
+
+      showWelcomeModal();   // ← new
     } else {
       errorMessage.textContent =
         "Incorrect username or password. Please try again.";
@@ -71,6 +73,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const navFormulas= document.getElementById("nav-formulas"); 
   const navSoftware = document.getElementById("nav-software");
   const navRemedy = document.getElementById("nav-remedy");
+
+  function showWelcomeModal() {
+    const wm = document.getElementById("welcome-modal");
+    const content = wm.querySelector(".welcome-content");
+    const userSpan = document.getElementById("welcome-user");
+    const closeBtn = document.getElementById("welcome-close");
+  
+    userSpan.textContent = loggedInUsername;
+    wm.classList.remove("hidden");
+    content.classList.remove("welcome-fade-out");
+    content.classList.add("welcome-fade-in");
+  
+    let timeoutId = setTimeout(dismiss, 9000);
+    closeBtn.addEventListener("click", dismiss, { once: true });
+  
+    function dismiss() {
+      clearTimeout(timeoutId);
+  
+      // fade out the inner box
+      content.classList.remove("welcome-fade-in");
+      content.classList.add("welcome-fade-out");
+  
+      // once fade-out ends, hide the whole backdrop
+      content.addEventListener("animationend", () => {
+        wm.classList.add("hidden");              // hides the dim overlay
+        content.classList.remove("welcome-fade-out");
+      }, { once: true });
+    }
+  }
+  
 
   const homeContent = `
       <div class="container" id="description-panel">
@@ -340,31 +372,6 @@ document.addEventListener("DOMContentLoaded", function () {
 `;
 
 const softwareContent = `
-  <div class="container" id="scripts-panel">
-    <h1>Malware</h1>
-    <p>Our meticulously programmed pathogens, also known as viruses, cover a wide range of activities—from computer hacking and network infiltration to ransomware attacks. Our skilled specialists, known as black hats, occasionally develop these advanced threats to address all your needs.</p>
-    <button class="payload-btn">[$10] Mobile Virus</button>
-    <button class="payload-btn">[$15] Computer Virus</button>
-    <button class="payload-btn">[$25] Network Virus</button>
-    <button class="payload-btn">[$60] Ransomware</button>
-  </div>
-  <div class="container" id="scripts-panel">
-    <h1>Recon</h1>
-    <p>These programs have been reverse-engineered by our expert hackers and are based on some of the most secure and authorized tools used by government agencies and officials. They contain highly sensitive data and are designed to recover or uncover information about various targets, whether things or individuals.</p>
-    <button class="payload-btn">[$125] Intillegencer</button>
-    <button class="payload-btn">[$115] Any Card</button>
-  </div>
-  <div class="container" id="botnet-panel">
-    <h1>Botnet & Automation</h1>
-    <p>
-      Automate your attacks, spam, and digital operations with our powerful botnet & automation solutions. These tools are designed for total control, whether you need to take down servers, flood inboxes, or execute coordinated mass actions across thousands of machines.
-    </p>
-    <button class="payload-btn">[$90] Windows Botnet Framework</button>
-    <button class="payload-btn">[$65] Automated Spamming Suite</button>
-    <button class="payload-btn">[$80] Phishing Farm </button>
-    <button class="payload-btn">[$30] Social Media Mass Creator</button>
-    <button class="payload-btn">[$100] Credential Stuffing Toolkit</button>
-  </div>
   <div class="container" id="stealer-panel">
     <h1>Stealers & Keyloggers Suite</h1>
     <p>
@@ -403,7 +410,42 @@ const softwareContent = `
     <button class="payload-btn">[$45] Mobile App Obfuscator</button>
     <button class="payload-btn">[$120] Ultimate FUD Bundle</button>
   </div>
+  <div class="container" id="scripts-panel">
+    <h1>Malware</h1>
+    <p>Our meticulously programmed pathogens, also known as viruses, cover a wide range of activities—from computer hacking and network infiltration to ransomware attacks. Our skilled specialists, known as black hats, occasionally develop these advanced threats to address all your needs.</p>
+    <button class="payload-btn">[$10] Mobile Virus</button>
+    <button class="payload-btn">[$15] Computer Virus</button>
+    <button class="payload-btn">[$25] Network Virus</button>
+    <button class="payload-btn">[$60] Ransomware</button>
+  </div>
+  <div class="container" id="scripts-panel">
+    <h1>Recon</h1>
+    <p>These programs have been reverse-engineered by our expert hackers and are based on some of the most secure and authorized tools used by government agencies and officials. They contain highly sensitive data and are designed to recover or uncover information about various targets, whether things or individuals.</p>
+    <button class="payload-btn">[$125] Intillegencer</button>
+    <button class="payload-btn">[$115] Any Card</button>
+  </div>
+  <div class="container" id="botnet-panel">
+    <h1>Botnet & Automation</h1>
+    <p>
+      Automate your attacks, spam, and digital operations with our powerful botnet & automation solutions. These tools are designed for total control, whether you need to take down servers, flood inboxes, or execute coordinated mass actions across thousands of machines.
+    </p>
+    <button class="payload-btn">[$90] Windows Botnet Framework</button>
+    <button class="payload-btn">[$65] Automated Spamming Suite</button>
+    <button class="payload-btn">[$80] Phishing Farm </button>
+    <button class="payload-btn">[$30] Social Media Mass Creator</button>
+    <button class="payload-btn">[$100] Credential Stuffing Toolkit</button>
+  </div>
 `;;
+
+const remedyContent = `
+  <div class="container" id="remedy-panel">
+    <h1>Marijuana</h1>
+    <p>Top-shelf nugs, potent carts and disposables, edibles, and infused drinks—hand-selected for quality and strength. Start with a gram, grab an ounce, or go up to a full pound. Experience the best.</p>
+    <button class="payload-btn" onclick="window.location.href='https://tedzmed.com';">
+      Visit TedzMedz Market
+    </button>
+  </div>
+`;
 
   navHome.addEventListener("click", () => {
     setActiveNav("nav-home");
