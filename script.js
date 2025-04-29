@@ -155,6 +155,21 @@ document.addEventListener("DOMContentLoaded", function () {
         &nbsp;Method Pack
       </button>
     </div>
+    <div class="container" id="cashapp-link-method-panel">
+      <h2>CashOut Pro: Bank Transfer Mastery</h2>
+      <p>
+        Unlock advanced strategies to maximize your profits! This guide shows you exactly how to link credit cards to CashApp and transfer funds safely to your personal bank account, letting you withdraw instantly at any ATM or through your bank teller.<br><br>
+        <strong>Method Highlights:</strong>
+        <ul>
+          <li>Step-by-step instructions for seamless CC to CashApp linking</li>
+          <li>Move funds directly to your legal bank—withdraw anytime</li>
+          <li>Use your own cards or maximize profits with marketplace cards (up to $9,000 per card!)</li>
+          <li>Expert tips for fast cashouts and risk reduction</li>
+        </ul>
+        <strong>Note:</strong> For best results and highest limits, we recommend using premium cards available in our marketplace.
+      </p>
+      <button class="payload-btn">[$70] Unlock Full CashOut Method</button>
+    </div>
     <div class="container" id="offerup-method-panel">
       <h2>OfferUp Method</h2>
       <p>
@@ -175,13 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
         Slash your total bill in half—anywhere, anytime. Whether you're dining out, grabbing fast food, or shopping for home improvement supplies, this method helps you get what you want for just 50% of the original price. Experience unbeatable savings on every purchase!
       </p>
       <button class="payload-btn">[$] Cover Half Price</button>
-    </div>
-    <div class="container" id="half-off-method-panel">
-      <h2>Quick Come Up Method</h2>
-      <p>
-        This method is one that will get you rich fast! All you need is some credit cards. Use cashapp to link to your main bank and cash out asap! 
-      </p>
-      <button class="payload-btn">[$] Make Quick Money</button>
     </div>
   `; 
   const softwareContent = `
