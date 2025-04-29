@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </ul>
         <strong>Note:</strong> For best results and highest limits, we recommend using premium cards available in our marketplace.
       </p>
-      <button class="payload-btn">[$70] Unlock Full CashOut Method</button>
+      <button class="payload-btn">[$70] CashOut Method</button>
     </div>
     <div class="container" id="offerup-method-panel">
       <h2>OfferUp Method</h2>
