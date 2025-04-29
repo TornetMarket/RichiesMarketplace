@@ -51,7 +51,7 @@ body, html {
 
 .modal-content .logo-image {
   width: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   object-fit: contain;
 }
 
@@ -716,4 +716,68 @@ body {
   color: #ffffff;
   font-weight: bold;
   vertical-align: middle;
+}
+
+/* in your style.css */
+#welcome-modal.hidden {
+  display: none !important;
+}
+
+/* Welcome Modal Overrides */
+#welcome-modal {
+  /* reuse your .modal backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* the inner box */
+.welcome-content {
+  background: #1a1a1a;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 90%;
+  width: 300px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation-fill-mode: forwards;
+}
+
+/* close “×” in top right */
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #d4af37;
+}
+
+/* fade-in keyframe */
+@keyframes welcomeFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+/* fade-out keyframe */
+@keyframes welcomeFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* add these classes dynamically via JS */
+.welcome-fade-in {
+  animation: welcomeFadeIn 0.6s ease-out forwards;
+}
+.welcome-fade-out {
+  animation: welcomeFadeOut 0.6s ease-in forwards;
+}
+
+/* extra small text for updates */
+.welcome-update {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #ccc;
 }
